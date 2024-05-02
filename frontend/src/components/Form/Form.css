@@ -1,0 +1,50 @@
+.form_container {
+  width: 600px;
+  height: 500px;
+}
+
+.buttons_container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.buttons_container button {
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.green_hover:hover {
+  background-color: #00563B;
+}
+
+.red_hover:hover {
+  background-color: #AA0000;
+}
+
+.form_group_container {
+  border-radius: 5px;
+  border: 1px solid black;
+  padding: 20px;
+}
+
+.form_group {
+  margin-bottom: 20px;
+}
+
+.form_group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form_group input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
