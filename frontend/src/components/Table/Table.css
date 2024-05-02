@@ -1,0 +1,42 @@
+.tabela_container h2 {
+  margin: 20px 0 20px 0;
+}
+
+.tabela_container button {
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.green_hover:hover {
+  background-color: #00563B;
+}
+
+.yellow_hover:hover {
+  background-color: #FFC72C;
+}
+
+.red_hover:hover {
+  background-color: #AA0000;
+}
+
+.tabela {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.tabela th, .tabela td {
+  border: 1px solid black;
+  padding: 8px;
+}
+
+.tabela th {
+  text-align: left;
+}
+
+.tabela tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
