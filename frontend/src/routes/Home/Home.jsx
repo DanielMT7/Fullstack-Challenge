@@ -1,12 +1,11 @@
+import Table from '../../components/Table/Table'
 import './Home.css'
 
 function Home() {
   return (
-    <>
-      <div>
-        <h1>Home</h1>
-      </div>
-    </>
+    <div className="home_container">
+      <Table />
+    </div>
   )
 }
 
