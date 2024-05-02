@@ -1,12 +1,11 @@
+import Form from '../../components/Form/Form'
 import './Register.css'
 
 function Register() {
   return (
-    <>
-      <div>
-        <h1>Register</h1>
-      </div>
-    </>
+    <div className="register_container">
+      <Form />
+    </div>
   )
 }
 
