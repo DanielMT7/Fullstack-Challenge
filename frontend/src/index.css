@@ -1,0 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: rgb(229, 229, 229);
+}
+
+input, textarea, button {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+}
+
