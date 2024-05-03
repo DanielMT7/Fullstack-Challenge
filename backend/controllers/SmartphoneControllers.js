@@ -6,9 +6,9 @@ module.exports.getSmartphones = async (req, res) => {
 }
 
 module.exports.saveSmartphone = async (req, res) => {
-  const { smartphone } = req.body
+  const { brand, model, capacity, release } = req.body
 
-  SmartphoneModel.create({ smartphone })
+  SmartphoneModel.create({ brand, model, capacity, release })
     .then(data => {
       console.log('Saved Successfully...')
       res.status(201).send(data)
