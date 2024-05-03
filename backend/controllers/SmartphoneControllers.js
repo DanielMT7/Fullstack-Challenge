@@ -10,7 +10,6 @@ module.exports.saveSmartphone = async (req, res) => {
 
   SmartphoneModel.create({ brand, model, capacity, release })
     .then(data => {
-      console.log('Saved Successfully...')
       res.status(201).send(data)
     })
     .catch(err => {
@@ -21,9 +20,9 @@ module.exports.saveSmartphone = async (req, res) => {
 
 module.exports.updateSmartphone = async (req, res) => {
   const { id } = req.params
-  const { smartphone } = req.body
+  const { brand, model, capacity, release } = req.body
 
-  SmartphoneModel.findByIdAndUpdate(id, { smartphone })
+  SmartphoneModel.findByIdAndUpdate(id, { brand, model, capacity, release })
     .then(() => res.send('Updated successfully...'))
     .catch(err => {
       console.log(err)
@@ -33,9 +32,8 @@ module.exports.updateSmartphone = async (req, res) => {
 
 module.exports.deleteSmartphone = async (req, res) => {
   const { id } = req.params
-  const { smartphone } = req.body
 
-  SmartphoneModel.findByIdAndRemove(id, { smartphone })
+  SmartphoneModel.findByIdAndDelete(id)
     .then(() => res.send('Deleted successfully...'))
     .catch(err => {
       console.log(err)
