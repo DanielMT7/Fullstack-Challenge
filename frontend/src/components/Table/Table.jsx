@@ -1,11 +1,47 @@
+import { useEffect, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+
+import axios from 'axios'
+
+import { baseURL } from '../../utils/constants'
+
 import './Table.css'
 
 function Table() {
-  // Estrutura base da tabela
+  const [prevState, setPrevState] = useState(false)
+  const [smartphones, setSmartphone] = useState([])
+
+  const navigate = useNavigate()
+
+  const changeSmartphone = smartphone => {
+    navigate('/register', { state: { smartphone } })
+  }
+
+  useEffect(() => {
+    axios.get(`${baseURL}/get`).then(res => {
+      console.log(res.data)
+      setSmartphone(res.data)
+    })
+  }, [prevState])
+
+  const removeSmartphone = id => {
+    axios
+      .delete(`${baseURL}/delete/${id}`)
+      .then(res => {
+        console.log(res)
+        setPrevState(!prevState)
+      })
+      .catch(error => {
+        console.error('Erro ao deletar smartphone:', error)
+      })
+  }
 
   return (
     <div className="tabela_container">
-      <button className="green_hover">Criar Novo</button>
+      <Link to="/register">
+        <button className="green_hover">Criar Novo</button>
+      </Link>
+
       <h2>Tabela de Smartphones</h2>
       <table className="tabela">
         <thead>
@@ -19,30 +55,30 @@ function Table() {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Samsung</td>
-            <td>Galaxy S24</td>
-            <td>8GB</td>
-            <td>01/01/2023</td>
-            <td>
-              <button className="yellow_hover">Alterar</button>
-            </td>
-            <td>
-              <button className="red_hover">Excluir</button>
-            </td>
-          </tr>
-          <tr>
-            <td>Apple</td>
-            <td>Iphone 15</td>
-            <td>16GB</td>
-            <td>01/01/2023</td>
-            <td>
-              <button className="yellow_hover">Alterar</button>
-            </td>
-            <td>
-              <button className="red_hover">Excluir</button>
-            </td>
-          </tr>
+          {smartphones.map(smartphone => (
+            <tr key={smartphone._id}>
+              <td>{smartphone.brand}</td>
+              <td>{smartphone.model}</td>
+              <td>{smartphone.capacity}</td>
+              <td>{smartphone.release}</td>
+              <td>
+                <button
+                  className="yellow_hover"
+                  onClick={() => changeSmartphone(smartphone)}
+                >
+                  Alterar
+                </button>
+              </td>
+              <td>
+                <button
+                  className="red_hover"
+                  onClick={() => removeSmartphone(smartphone._id)}
+                >
+                  Excluir
+                </button>
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>
