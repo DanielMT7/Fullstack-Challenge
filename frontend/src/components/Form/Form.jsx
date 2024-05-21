@@ -16,7 +16,6 @@ function Form() {
   })
 
   const navigate = useNavigate()
-
   const location = useLocation()
   const { smartphone } = location.state ?? {}
 
@@ -40,7 +39,6 @@ function Form() {
         .put(`${baseURL}/update/${smartphone._id}`, smartphoneData)
         .then(res => {
           console.log(res.data)
-
           navigate(-1)
         })
         .catch(error => {
@@ -51,7 +49,6 @@ function Form() {
         .post(`${baseURL}/save`, smartphoneData)
         .then(res => {
           console.log(res.data)
-
           setSmartphoneData({
             brand: '',
             model: '',
@@ -102,7 +99,7 @@ function Form() {
         <div className="form_group">
           <label htmlFor="release">Data de Lançamento:</label>
           <input
-            type="text"
+            type="date"
             id="release"
             name="release"
             value={smartphoneData.release}
@@ -116,7 +113,6 @@ function Form() {
             Cancelar
           </button>
         </Link>
-
         <button className="green_hover" type="button" onClick={addSmartphone}>
           Salvar
         </button>
