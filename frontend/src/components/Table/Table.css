@@ -1,5 +1,5 @@
 .tabela_container h2 {
-  margin: 20px 0 20px 0;
+  margin: 20px 0;
 }
 
 .tabela_container button {
@@ -39,4 +39,36 @@
 
 .tabela tr:nth-child(even) {
   background-color: #f2f2f2;
+}
+
+@media (max-width: 860px) {
+  .tabela thead {
+    display: none;
+  }
+
+  .tabela, .tabela tbody, .tabela tr, .tabela td {
+    display: block;
+    width: 100%;
+  }
+
+  .tabela tr {
+    margin-bottom: 15px;
+  }
+
+  .tabela td {
+    height: 60px;
+    text-align: right;
+    padding-left: 50%;
+    position: relative;
+  }
+
+  .tabela td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 50%;
+    padding-left: 15px;
+    font-weight: bold;
+    text-align: left;
+  }
 }

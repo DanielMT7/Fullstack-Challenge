@@ -57,11 +57,11 @@ function Table() {
         <tbody>
           {smartphones.map(smartphone => (
             <tr key={smartphone._id}>
-              <td>{smartphone.brand}</td>
-              <td>{smartphone.model}</td>
-              <td>{smartphone.capacity}</td>
-              <td>{smartphone.release}</td>
-              <td>
+              <td data-label="Marca">{smartphone.brand}</td>
+              <td data-label="Modelo">{smartphone.model}</td>
+              <td data-label="Capacidade de Memória">{smartphone.capacity}</td>
+              <td data-label="Data de Lançamento">{smartphone.release}</td>
+              <td data-label="Alterar">
                 <button
                   className="yellow_hover"
                   onClick={() => changeSmartphone(smartphone)}
@@ -69,7 +69,7 @@ function Table() {
                   Alterar
                 </button>
               </td>
-              <td>
+              <td data-label="Excluir">
                 <button
                   className="red_hover"
                   onClick={() => removeSmartphone(smartphone._id)}
